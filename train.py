@@ -138,24 +138,24 @@ if __name__ == "__main__":
     #------------------------------#
     #   输入图片的大小
     #------------------------------#
-    inputs_size = [473,473,3]
+    inputs_size = [1024,1024,3]
     #---------------------#
     #   分类个数+1
     #   2+1
     #---------------------#
-    NUM_CLASSES = 21
+    NUM_CLASSES = 4
     #--------------------------------------------------------------------#
     #   建议选项：
     #   种类少（几类）时，设置为True
     #   种类多（十几类）时，如果batch_size比较大（10以上），那么设置为True
     #   种类多（十几类）时，如果batch_size比较小（10以下），那么设置为False
     #---------------------------------------------------------------------# 
-    dice_loss = False
+    dice_loss = True
     #-------------------------------#
     #   主干网络预训练权重的使用
     #   mobilenet和resnet50
     #-------------------------------#
-    pretrained = False
+    pretrained = True
     backbone = "mobilenet"
     #---------------------#
     #   是否使用辅助分支
@@ -186,15 +186,15 @@ if __name__ == "__main__":
     #   权值文件的下载请看README
     #   权值和主干特征提取网络一定要对应
     #-------------------------------------------#
-    model_path = "model_data/pspnet_mobilenetv2.pth"
+    #model_path = "model_data/pspnet_mobilenetv2.pth"
     # 加快模型训练的效率
-    print('Loading weights into state dict...')
-    model_dict = model.state_dict()
-    pretrained_dict = torch.load(model_path)
-    pretrained_dict = {k: v for k, v in pretrained_dict.items() if np.shape(model_dict[k]) ==  np.shape(v)}
-    model_dict.update(pretrained_dict)
-    model.load_state_dict(model_dict)
-    print('Finished!')
+    #print('Loading weights into state dict...')
+    #model_dict = model.state_dict()
+    #pretrained_dict = torch.load(model_path)
+    #pretrained_dict = {k: v for k, v in pretrained_dict.items() if np.shape(model_dict[k]) ==  np.shape(v)}
+    #model_dict.update(pretrained_dict)
+    #model.load_state_dict(model_dict)
+    #print('Finished!')
 
     loss_history = LossHistory("logs/")
     
