@@ -93,9 +93,10 @@ if __name__ == "__main__":
     #   分类个数+1
     #   2+1
     #------------------------------#
-    num_classes = 21
+    num_classes = 4
     #--------------------------------------------#
     #   区分的种类，和json_to_dataset里面的一样
     #--------------------------------------------#
-    name_classes = ["background","aeroplane", "bicycle", "bird", "boat", "bottle", "bus", "car", "cat", "chair", "cow", "diningtable", "dog", "horse", "motorbike", "person", "pottedplant", "sheep", "sofa", "train", "tvmonitor"]
+    #name_classes = ["background","aeroplane", "bicycle", "bird", "boat", "bottle", "bus", "car", "cat", "chair", "cow", "diningtable", "dog", "horse", "motorbike", "person", "pottedplant", "sheep", "sofa", "train", "tvmonitor"]
+    name_classes = ["background","die","yutou","wire"]
     compute_mIoU(gt_dir, pred_dir, png_name_list, num_classes, name_classes)  # 执行计算mIoU的函数
