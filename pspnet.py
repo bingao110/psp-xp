@@ -35,10 +35,10 @@ def letterbox_image(image, size):
 class PSPNet(object):
     _defaults = {
         "model_path"        : 'model_data/pspnet_mobilenetv2.pth',
-        "model_image_size"  : (473, 473, 3),
+        "model_image_size"  : (1024, 1024, 3),
         "backbone"          : "mobilenet",
         "downsample_factor" : 16,
-        "num_classes"       : 21,
+        "num_classes"       : 4,
         "cuda"              : True,
         #--------------------------------#
         #   blend参数用于控制是否
